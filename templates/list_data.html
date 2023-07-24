@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>DATA Table</h2>
+<h3><a href="{% url 'create' %}" >Add New</a></h3>
+<table>
+ 
+    <thead>
+        <tr>
+          <th>ID</th>
+            <th>title</th>
+            <th>description</th>
+            <th>priority</th>
+            <th>created_by</th>
+            <th>created_at</th>
+            <th>Update</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+          {% if list_data %}
+            {% for opp in list_data %}
+            <tr> <td>{{ opp.id }}</td>
+                <td>{{ opp.title }}</td>
+                <td>{{ opp.description }}</td>
+                <td>{{ opp.priority }}</td>
+                <td>{{ opp.created_by }}</td>
+                <td>{{ opp.created_at }}</td>
+                <td> <a href="{% url 'view' opp.id %}" class="btn btn-primary">View</a><br><a href="{% url 'update' opp.id %}" class="btn btn-primary">update</a><br><a href="{% url 'delete' opp.id %}" class="btn btn-primary">Delete</a></td>
+              </tr> 
+            {% endfor %}
+            {% else %}
+
+          <h4> No Data</h4>
+
+          {% endif %}
+          </tbody>     
+         
+</table>
+
+</body>
+</html>

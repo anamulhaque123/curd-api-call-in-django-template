@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Data info </h1>
+    {% if list_data %}
+    {% for list_data in list_data %}
+<h3>Id:{{list_data.id}}</h3>
+<h3>title:{{list_data.title}}</h3>
+<h3>Description:{{list_data.description}}</h3>
+<h3> priority:{{list_data.priority}}</h3>
+<h3>created_by:{{list_data.create_by}}</h3>
+<h3> created_at:{{list_data.created_at}}</h3>
+{% endfor %}
+{% else %}
+
+<h4> No Data</h4>
+
+{% endif %}
+</body>
+</htm>
